@@ -73,6 +73,17 @@ const Navigation = ({ onHomeClick, onViewChange, currentView, isMobileMenuOpen, 
             </div>
           </div>
           
+          {/* Server Wake-up Button */}
+          <div className="nav-item">
+            <button 
+              className="server-wake-btn nav-style"
+              onClick={() => window.open('https://movies-vault-backend.onrender.com/', '_blank')}
+              style={{ width: '100%', border: 'none', marginBottom: '0.5rem' }}
+            >
+              Switch On Server
+            </button>
+          </div>
+          
           <div className="nav-item">
             <button 
               className="logout-btn"

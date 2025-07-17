@@ -39,14 +39,41 @@ DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() == 'true'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
+# Clean up whitespace from ALLOWED_HOSTS
+ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS if host.strip()]
+
+# Add render.com domains explicitly for production
+if not DEBUG:
+    ALLOWED_HOSTS.extend([
+        'movies-vault-backend.onrender.com',
+        '.onrender.com',  # Allow any onrender.com subdomain
+    ])
+
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True  # Temporarily allow all origins for testing
-CORS_ALLOWED_ORIGINS = [
+CORS_ALLOW_ALL_ORIGINS = DEBUG  # Only allow all origins in development
+
+# Get CORS allowed origins from environment variable
+cors_origins_env = os.getenv('CORS_ALLOWED_ORIGINS', '')
+CORS_ALLOWED_ORIGINS = []
+
+# Default development origins
+default_origins = [
     "http://localhost:5173",  # Vite default
     "http://localhost:5174",  # Our frontend
     "http://127.0.0.1:5173",
     "http://127.0.0.1:5174",
 ]
+
+if cors_origins_env:
+    # Add production origins from environment
+    env_origins = [origin.strip() for origin in cors_origins_env.split(',') if origin.strip()]
+    CORS_ALLOWED_ORIGINS.extend(env_origins)
+
+# Always include development origins
+CORS_ALLOWED_ORIGINS.extend(default_origins)
+
+# Remove duplicates
+CORS_ALLOWED_ORIGINS = list(set(CORS_ALLOWED_ORIGINS))
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -206,7 +233,7 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': False,  # Disabled for MongoDB compatibility
     'UPDATE_LAST_LOGIN': True,
     
-    
+
     'ALGORITHM': 'HS256',
     'SIGNING_KEY': os.getenv('JWT_SECRET_KEY', SECRET_KEY),
     'VERIFYING_KEY': None,

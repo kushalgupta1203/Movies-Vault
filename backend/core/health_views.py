@@ -366,11 +366,6 @@ def health_page(request):
             </div>
             
             <script>
-                // Auto-refresh every 30 seconds to keep server awake
-                setTimeout(() => {{
-                    window.location.reload();
-                }}, 30000);
-                
                 // Add some interactivity
                 document.addEventListener('DOMContentLoaded', function() {{
                     const cards = document.querySelectorAll('.status-card');
