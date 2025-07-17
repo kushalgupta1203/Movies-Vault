@@ -9,6 +9,36 @@ A full-stack movie discovery and watchlist management application built with Rea
 
 > **⚠️ Note**: If the application is not working, the backend server might be sleeping (free tier). Click the "Switch On Server" button in the bottom-left of the login page or visit the backend URL directly to wake it up. The server will be active within 10-15 seconds.
 
+## 📸 Screenshots
+
+<div align="center">
+
+### 🔐 Authentication
+<img src="frontend/public/ss/1.login.png" alt="Login Page" width="800">
+<br><em>Secure login with user-friendly error handling and server wake-up option</em>
+
+### 🏠 Movie Discovery
+<img src="frontend/public/ss/2.landing.png" alt="Landing Page" width="800">
+<br><em>Clean, modern interface for discovering popular movies</em>
+
+### 🔥 Top Rated Movies
+<img src="frontend/public/ss/3.top.png" alt="Top Rated Movies" width="800">
+<br><em>Browse top-rated movies with detailed information and ratings</em>
+
+### 📈 Trending Movies
+<img src="frontend/public/ss/4.trending.png" alt="Trending Movies" width="800">
+<br><em>Stay updated with currently trending movies</em>
+
+### 💾 Personal Watchlist
+<img src="frontend/public/ss/5.watchlist.png" alt="Watchlist Management" width="800">
+<br><em>Manage your personal movie watchlist with easy add/remove functionality</em>
+
+### ⚙️ Backend Monitoring
+<img src="frontend/public/ss/6.backend.png" alt="Backend Health Dashboard" width="800">
+<br><em>Professional backend health monitoring dashboard</em>
+
+</div>
+
 ## ✨ Features
 
 
