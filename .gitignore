@@ -1,0 +1,71 @@
+# Root .gitignore for Movies Vault Project
+
+# Environment Variables (PROJECT-WIDE PROTECTION)
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.staging
+**/.env
+**/.env.*
+
+# Sensitive Files
+credentials.txt
+**/credentials.*
+secrets.json
+private_key.json
+api-keys.txt
+
+# Development Documentation (may contain sensitive info)
+17july.txt
+Movies-Vault-Development-Roadmap.txt
+ERROR_HANDLING_DOCUMENTATION.md
+
+# Screenshots (may contain sensitive data)
+*.png
+*.jpg
+*.jpeg
+*.gif
+Screenshot*.png
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Logs
+*.log
+logs/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Database backups
+*.sql
+*.dump
+
+# Docker (if we add it back later)
+docker-compose.override.yml

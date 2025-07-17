@@ -1,0 +1,101 @@
+MONGODB MIGRATION COMMANDS - EXECUTE IN ORDER
+===============================================
+
+✅ COMPLETED STEPS:
+==================
+✅ MongoDB Atlas connection working
+✅ Environment variables configured  
+✅ Dependencies installed (mongoengine, pymongo)
+✅ MongoEngine models created (authentication/mongo_models.py)
+✅ Views updated to use MongoDB (authentication/views_mongo.py, watchlist/views_mongo.py)
+✅ URLs updated to use MongoDB views
+✅ Integration tests passing
+✅ Database migration script created
+
+STEP 1: START DJANGO SERVER
+===========================
+python manage.py runserver 8000
+
+STEP 2: TEST AUTHENTICATION ENDPOINTS
+=====================================
+# Test URLs:
+# POST http://127.0.0.1:8000/api/auth/register/
+# POST http://127.0.0.1:8000/api/auth/login/
+# GET  http://127.0.0.1:8000/api/auth/health/
+
+STEP 3: TEST FRONTEND INTEGRATION
+=================================
+# In another terminal, start frontend:
+cd ../frontend
+npm run dev
+
+# Test these URLs:
+# Backend: http://127.0.0.1:8000/api/auth/health/
+# Frontend: http://localhost:5173/
+
+DEPLOYMENT CHECKLIST
+===================
+✅ MongoDB Atlas connection working
+✅ Environment variables configured
+✅ Dependencies installed (mongoengine, pymongo)
+✅ MongoEngine models created and tested
+✅ Database integration working
+✅ Authentication views updated for MongoDB
+✅ Watchlist views updated for MongoDB
+✅ Integration tests passing
+⏳ Django server running
+⏳ Authentication working with frontend
+⏳ All APIs functional with MongoDB
+
+WHAT WE CHANGED
+===============
+1. **Database Engine**: Switched from djongo to MongoEngine for better MongoDB compatibility
+2. **Models**: Created new MongoEngine models in authentication/mongo_models.py
+3. **Views**: Updated authentication and watchlist views to use MongoDB
+4. **Token Blacklist**: Custom MongoDB-based token blacklisting
+5. **Settings**: Updated to use MongoEngine connection instead of djongo
+
+KEY FILES UPDATED
+=================
+- movies_vault/settings.py (MongoDB configuration)
+- authentication/mongo_models.py (New MongoEngine models)
+- authentication/views_mongo.py (MongoDB-compatible views)
+- authentication/urls.py (Updated to use MongoDB views)
+- watchlist/views_mongo.py (MongoDB-compatible watchlist views)
+- watchlist/urls.py (Updated URLs)
+
+PRODUCTION DEPLOYMENT NOTES
+===========================
+1. Update ALLOWED_HOSTS in settings.py for production domain
+2. Set DEBUG=False in production
+3. Use production MongoDB cluster
+4. Configure CORS for production frontend domain
+5. Use secure JWT secret keys
+6. Enable HTTPS
+
+TROUBLESHOOTING
+==============
+If you encounter errors:
+
+1. "No module named 'mongoengine'":
+   pip install mongoengine pymongo
+
+2. "Connection failed":
+   - Check MongoDB URI in .env
+   - Verify MongoDB Atlas network access
+   - Check username/password
+
+3. "Authentication errors":
+   - Check JWT secret key in .env
+   - Verify token blacklist setup
+   - Test with: python test_mongodb_mongoengine.py
+
+4. "Frontend can't connect":
+   - Check CORS settings
+   - Verify backend is running on port 8000
+   - Check API base URL in frontend
+   - Test health endpoint: http://127.0.0.1:8000/api/auth/health/
+
+5. "Index conflicts":
+   - Run: python cleanup_mongodb.py
+   - Restart server
