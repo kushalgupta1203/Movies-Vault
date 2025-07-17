@@ -18,9 +18,14 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from core.health_views import health_check, health_page
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    
+    # Health check endpoints (for monitoring and manual checks)
+    path("health/", health_check, name="health_check"),
+    path("", health_page, name="health_page"),  # Root URL shows health page
     
     # API routes
     path("api/auth/", include("authentication.urls")),
