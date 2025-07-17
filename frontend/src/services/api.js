@@ -24,7 +24,7 @@ class MoviesVaultAPI {
   // Register user with username/password
   async register(userData) {
     try {
-      const response = await fetch(`${API_BASE_URL}/auth/register/`, {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData)
@@ -62,7 +62,7 @@ class MoviesVaultAPI {
   // Login user with username/password
   async login(username, password) {
     try {
-      const response = await fetch(`${API_BASE_URL}/auth/login/`, {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -110,7 +110,7 @@ class MoviesVaultAPI {
       // Try to blacklist token on server if refresh token exists
       if (refreshToken) {
         try {
-          const response = await fetch(`${API_BASE_URL}/auth/logout/`, {
+          const response = await fetch(`${API_BASE_URL}/api/auth/logout/`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -150,7 +150,7 @@ class MoviesVaultAPI {
   
   // Add movie to watchlist
   async addToWatchlist(movieData) {
-    const response = await fetch(`${API_BASE_URL}/watchlist/add/`, {
+    const response = await fetch(`${API_BASE_URL}/api/watchlist/add/`, {
       method: 'POST',
       headers: this.getHeaders(),
       body: JSON.stringify({
@@ -173,7 +173,7 @@ class MoviesVaultAPI {
 
   // Remove movie from watchlist
   async removeFromWatchlist(movieId) {
-    const response = await fetch(`${API_BASE_URL}/watchlist/remove/${movieId}/`, {
+    const response = await fetch(`${API_BASE_URL}/api/watchlist/remove/${movieId}/`, {
       method: 'DELETE',
       headers: this.getHeaders()
     });
@@ -189,8 +189,8 @@ class MoviesVaultAPI {
   // Get user's watchlist
   async getWatchlist(status = null) {
     const url = status 
-      ? `${API_BASE_URL}/watchlist/?status=${status}`
-      : `${API_BASE_URL}/watchlist/`;
+      ? `${API_BASE_URL}/api/watchlist/?status=${status}`
+      : `${API_BASE_URL}/api/watchlist/`;
       
     const response = await fetch(url, {
       method: 'GET',
@@ -207,7 +207,7 @@ class MoviesVaultAPI {
 
   // Check if movie is in watchlist
   async checkWatchlistStatus(movieId) {
-    const response = await fetch(`${API_BASE_URL}/watchlist/check/${movieId}/`, {
+    const response = await fetch(`${API_BASE_URL}/api/watchlist/check/${movieId}/`, {
       method: 'GET',
       headers: this.getHeaders()
     });
@@ -222,7 +222,7 @@ class MoviesVaultAPI {
 
   // Toggle watch status (watched/want to watch)
   async toggleWatchStatus(movieId) {
-    const response = await fetch(`${API_BASE_URL}/watchlist/${movieId}/toggle/`, {
+    const response = await fetch(`${API_BASE_URL}/api/watchlist/${movieId}/toggle/`, {
       method: 'PUT',
       headers: this.getHeaders()
     });
@@ -237,7 +237,7 @@ class MoviesVaultAPI {
 
   // Get watchlist statistics
   async getWatchlistStats() {
-    const response = await fetch(`${API_BASE_URL}/watchlist/stats/`, {
+    const response = await fetch(`${API_BASE_URL}/api/watchlist/stats/`, {
       method: 'GET',
       headers: this.getHeaders()
     });
@@ -257,12 +257,12 @@ class MoviesVaultAPI {
     try {
       // First, get popular movies to establish a baseline of trending/popular movies
       const popularResponse = await fetch(
-        `${API_BASE_URL}/movies/popular/?page=1`,
+        `${API_BASE_URL}/api/movies/popular/?page=1`,
         { headers: this.getHeaders() }
       );
       
       const trendingResponse = await fetch(
-        `${API_BASE_URL}/movies/trending/?page=1`,
+        `${API_BASE_URL}/api/movies/trending/?page=1`,
         { headers: this.getHeaders() }
       );
       
@@ -301,7 +301,7 @@ class MoviesVaultAPI {
       
       // Now search for the query
       const searchResponse = await fetch(
-        `${API_BASE_URL}/movies/search/?query=${encodeURIComponent(query)}&page=1`,
+        `${API_BASE_URL}/api/movies/search/?query=${encodeURIComponent(query)}&page=1`,
         { headers: this.getHeaders() }
       );
 
@@ -359,7 +359,7 @@ class MoviesVaultAPI {
       // Fetch first 2 pages to get 40 movies
       for (let page = 1; page <= 2; page++) {
         const response = await fetch(
-          `${API_BASE_URL}/movies/popular/?page=${page}`,
+          `${API_BASE_URL}/api/movies/popular/?page=${page}`,
           { headers: this.getHeaders() }
         );
 
@@ -404,7 +404,7 @@ class MoviesVaultAPI {
       // Fetch first 2 pages to get 40 movies
       for (let page = 1; page <= 2; page++) {
         const response = await fetch(
-          `${API_BASE_URL}/movies/trending/?page=${page}`,
+          `${API_BASE_URL}/api/movies/trending/?page=${page}`,
           { headers: this.getHeaders() }
         );
 
@@ -449,7 +449,7 @@ class MoviesVaultAPI {
       // Fetch first 2 pages to get 40 movies
       for (let page = 1; page <= 2; page++) {
         const response = await fetch(
-          `${API_BASE_URL}/movies/top-rated/?page=${page}`,
+          `${API_BASE_URL}/api/movies/top-rated/?page=${page}`,
           { headers: this.getHeaders() }
         );
 
@@ -488,7 +488,7 @@ class MoviesVaultAPI {
   async getNowPlayingMovies(page = 1) {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/movies/now-playing/?page=${page}`,
+        `${API_BASE_URL}/api/movies/now-playing/?page=${page}`,
         { headers: this.getHeaders() }
       );
 
@@ -507,7 +507,7 @@ class MoviesVaultAPI {
   async getUpcomingMovies(page = 1) {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/movies/upcoming/?page=${page}`,
+        `${API_BASE_URL}/api/movies/upcoming/?page=${page}`,
         { headers: this.getHeaders() }
       );
 
@@ -526,7 +526,7 @@ class MoviesVaultAPI {
   async getGenres() {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/movies/genres/`,
+        `${API_BASE_URL}/api/movies/genres/`,
         { headers: this.getHeaders() }
       );
 
@@ -544,7 +544,7 @@ class MoviesVaultAPI {
   // Get movie details by ID
   async getMovieDetails(movieId) {
     try {
-      const response = await fetch(`${API_BASE_URL}/movies/${movieId}/`);
+      const response = await fetch(`${API_BASE_URL}/api/movies/${movieId}/`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
