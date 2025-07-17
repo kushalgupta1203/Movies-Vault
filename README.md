@@ -2,6 +2,13 @@
 
 A full-stack movie discovery and watchlist management application built with React and Django.
 
+## 🚀 Live Deployment
+
+**🌐 Frontend**: [https://movies-vault-mv.netlify.app](https://movies-vault-mv.netlify.app)  
+**⚙️ Backend**: [https://movies-vault-backend.onrender.com](https://movies-vault-backend.onrender.com)
+
+> **⚠️ Note**: If the application is not working, the backend server might be sleeping (free tier). Click the "Switch On Server" button in the bottom-left of the login page or visit the backend URL directly to wake it up. The server will be active within 10-15 seconds.
+
 ## ✨ Features
 
 
