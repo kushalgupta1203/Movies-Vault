@@ -8,6 +8,7 @@ from movies.tmdb_service import tmdb_service
 from datetime import datetime
 import logging
 
+
 logger = logging.getLogger(__name__)
 
 def get_user_from_token(request):

@@ -10,6 +10,8 @@ from django.db import models
 from datetime import datetime, timezone
 
 
+
+
 class BlacklistedToken(models.Model):
     """
     Simple model to store blacklisted JWT tokens

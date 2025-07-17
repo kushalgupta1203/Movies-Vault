@@ -7,6 +7,7 @@ import requests
 import json
 import time
 
+
 BASE_URL = "http://127.0.0.1:8000/api"
 
 def register_and_login():

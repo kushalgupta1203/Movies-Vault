@@ -10,3 +10,4 @@ urlpatterns = [
     path('config/', views.ConfigView.as_view(), name='config'),
     path('tmdb-config/', views.TMDBConfigView.as_view(), name='tmdb_config'),
 ]
+

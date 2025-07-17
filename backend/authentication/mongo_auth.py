@@ -12,6 +12,7 @@ from django.contrib.auth.models import AnonymousUser
 from authentication.mongo_models import User as MongoEngineUser
 
 
+
 class MongoUserWrapper:
     """
     Wrapper class to make MongoEngine User compatible with Django's authentication system

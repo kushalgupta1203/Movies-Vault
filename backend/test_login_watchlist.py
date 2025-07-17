@@ -7,6 +7,7 @@ Test login and watchlist functionality
 import requests
 import json
 
+
 BASE_URL = "http://127.0.0.1:8000/api"
 
 def test_login_and_watchlist():

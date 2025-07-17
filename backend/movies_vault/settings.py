@@ -206,6 +206,7 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': False,  # Disabled for MongoDB compatibility
     'UPDATE_LAST_LOGIN': True,
     
+    
     'ALGORITHM': 'HS256',
     'SIGNING_KEY': os.getenv('JWT_SECRET_KEY', SECRET_KEY),
     'VERIFYING_KEY': None,

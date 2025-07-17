@@ -12,6 +12,7 @@ from datetime import datetime, timezone, timedelta
 import json
 
 
+
 class User(Document):
     """User model using MongoEngine for MongoDB"""
     username = StringField(required=True, unique=True, max_length=150)

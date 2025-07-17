@@ -17,6 +17,7 @@ class SearchMoviesView(APIView):
             return Response({'error': 'Query parameter is required'}, 
                           status=status.HTTP_400_BAD_REQUEST)
         
+        
         try:
             data = tmdb_service.search_movies(query, page)
             if data:

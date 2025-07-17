@@ -77,6 +77,7 @@ class RegisterView(APIView):
             'error': '; '.join(errors) if errors else 'Registration failed'
         }, status=status.HTTP_400_BAD_REQUEST)
 
+
 class LoginView(APIView):
     permission_classes = [AllowAny]
     

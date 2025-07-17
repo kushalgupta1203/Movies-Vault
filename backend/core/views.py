@@ -4,6 +4,7 @@ from rest_framework.permissions import AllowAny
 from django.conf import settings
 import os
 
+
 class HealthCheckView(APIView):
     permission_classes = [AllowAny]
     

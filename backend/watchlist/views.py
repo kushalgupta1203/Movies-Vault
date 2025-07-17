@@ -74,6 +74,7 @@ def add_to_watchlist(request):
                 logger.warning(f"TMDB lookup failed: {tmdb_error}")
                 # Continue with provided data or defaults
         
+        
         # Create watchlist item
         watchlist_item = WatchlistItem.objects.create(
             user=request.user,

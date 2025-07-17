@@ -12,6 +12,7 @@ credentials.txt
 secrets.json
 private_key.json
 
+
 # Python
 __pycache__/
 *.py[cod]

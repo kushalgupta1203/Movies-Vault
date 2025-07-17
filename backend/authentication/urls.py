@@ -5,6 +5,7 @@ from rest_framework_simplejwt.views import (
 )
 from . import views_mongo as views
 
+
 urlpatterns = [
     # JWT Token endpoints
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

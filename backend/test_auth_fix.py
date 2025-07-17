@@ -42,6 +42,7 @@ def test_auth_endpoints():
     except Exception as e:
         print(f"  Health check: ERROR - {e}")
     
+    
     # Test registration (without email)
     try:
         register_data = {

@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     # Movie search and discovery
     path('search/', views.SearchMoviesView.as_view(), name='search_movies'),

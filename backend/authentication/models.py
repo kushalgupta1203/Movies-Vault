@@ -13,6 +13,8 @@ class User(AbstractUser):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+ 
+    
     # Make username the login field (as per user preference)
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']

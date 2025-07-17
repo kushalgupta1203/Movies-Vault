@@ -6,6 +6,7 @@ import requests
 from django.conf import settings
 import json
 
+
 class TMDBService:
     def __init__(self):
         self.api_key = settings.TMDB_API_KEY

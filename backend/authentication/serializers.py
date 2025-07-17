@@ -10,6 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
                  'date_joined', 'created_at', 'updated_at')
         read_only_fields = ('id', 'date_joined', 'created_at', 'updated_at')
 
+
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, min_length=8)
     

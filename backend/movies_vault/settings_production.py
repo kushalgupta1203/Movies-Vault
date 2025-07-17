@@ -6,6 +6,7 @@ This file contains production-ready settings for deployment.
 Copy these settings when deploying to production.
 """
 
+
 import os
 from pathlib import Path
 from datetime import timedelta

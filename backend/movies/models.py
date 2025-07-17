@@ -1,5 +1,7 @@
 from django.db import models
 
+
+
 class MovieCache(models.Model):
     """Cache for TMDB movie data to reduce API calls"""
     movie_id = models.IntegerField(unique=True)  # TMDB movie ID

@@ -46,3 +46,4 @@ class WatchlistStatsSerializer(serializers.Serializer):
     total_watch_time = serializers.IntegerField()  # in minutes
     favorite_genres = serializers.ListField()
     recent_activity = WatchlistItemSerializer(many=True)
+

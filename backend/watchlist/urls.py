@@ -9,3 +9,4 @@ urlpatterns = [
     path('check/<str:movie_id>/', views.check_watchlist_status, name='check_watchlist'),
     path('mark-watched/<str:movie_id>/', views.mark_as_watched, name='mark_as_watched'),
 ]
+

@@ -4,6 +4,7 @@ A full-stack movie discovery and watchlist management application built with Rea
 
 ## ✨ Features
 
+
 - 🔍 **Movie Search**: Discover movies using The Movie Database (TMDB) API
 - 📝 **User Authentication**: Secure JWT-based authentication with MongoDB
 - 💾 **Watchlist Management**: Add and remove movies from your personal watchlist
