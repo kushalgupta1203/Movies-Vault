@@ -548,6 +548,52 @@ header img {
   background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
 }
 
+/* Fixed Position Server Wake Button */
+.server-wake-fixed {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.server-wake-btn.fixed-position {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.server-wake-btn.fixed-position:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.server-wake-btn.fixed-position:active {
+  transform: translateY(0);
+}
+
+/* Mobile responsive for fixed button */
+@media (max-width: 768px) {
+  .server-wake-fixed {
+    bottom: 15px;
+    left: 15px;
+  }
+  
+  .server-wake-btn.fixed-position {
+    padding: 10px 14px;
+    font-size: 0.8rem;
+  }
+}
+
 .error-message {
   background: rgba(239, 68, 68, 0.9);
   border: 1px solid #ef4444;

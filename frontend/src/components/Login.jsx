@@ -242,22 +242,22 @@ const Login = () => {
                   {showSignup ? 'Sign In' : 'Sign Up'}
                 </a>
               </p>
-              
-              {/* Server Wake-up Button */}
-              <div className="server-wake-section">
-                <p className="server-wake-text">Server not responding?</p>
-                <button 
-                  type="button"
-                  className="server-wake-btn"
-                  onClick={() => window.open('https://movies-vault-backend.onrender.com/', '_blank')}
-                >
-                  Switch On Server
-                </button>
-              </div>
             </div>
           </form>
         </div>
         </div>
+      </div>
+
+      {/* Server Wake-up Button - Fixed Bottom Left */}
+      <div className="server-wake-fixed">
+        <button 
+          type="button"
+          className="server-wake-btn fixed-position"
+          onClick={() => window.open('https://movies-vault-backend.onrender.com/', '_blank')}
+          title="Click if server is not responding (wakes up sleeping server)"
+        >
+          Switch On Server
+        </button>
       </div>
     </div>
   );
