@@ -23,6 +23,9 @@ api-keys.txt
 Movies-Vault-Development-Roadmap.txt
 ERROR_HANDLING_DOCUMENTATION.md
 
+# AI Generated Documentation (optional - remove line below to track these files)
+project_docs_ai/
+
 # Screenshots (may contain sensitive data)
 Screenshot*.png
 
